@@ -1,8 +1,8 @@
-const myModal = new bootstrap.Modal("#transaction-modal")
+const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
 let data = {
-    transactions: []
+    transactions:[]
 };
 
 document.getElementById("button-logout").addEventListener("click", logout);
@@ -27,7 +27,7 @@ document.getElementById("transaction-form").addEventListener("submit", function(
     e.target.reset();
     myModal.hide();
 
-    getCashIN();
+    getCashIn();
     getCashOut();
     getTotal();
 
@@ -52,7 +52,7 @@ function checkLogged() {
         data = JSON.parse(dataUser);
     }
 
-    getCashIN();
+    getCashIn();
     getCashOut();
     getTotal();
 
@@ -65,7 +65,7 @@ function logout() {
     window.location.href ="index.html";
 }
 
-function getCashIN() {
+function getCashIn() {
     const transactions = data.transactions;
 
     const cashIn = transactions.filter((item) => item.type === "1");
@@ -144,7 +144,7 @@ function getCashOut() {
 }
 
 function getTotal() {
-    const transaction = data.transactions;
+    const transactions = data.transactions;
     let total = 0;
 
     transactions.forEach((item) => {
@@ -156,7 +156,7 @@ function getTotal() {
     });
 
     document.getElementById("total").innerHTML = `R$ ${total.toFixed(2)}`;
-}
+};
 
 function saveData(data) {
     localStorage.setItem(data.login, JSON.stringify(data));

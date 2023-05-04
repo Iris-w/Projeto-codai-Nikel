@@ -1,4 +1,4 @@
-const myModal = new bootstrap.Modal("#register-modal")
+const myModal = new bootstrap.Modal("#register-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
 
@@ -51,14 +51,14 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
     saveAccount({
         login: email,
         senha: senha,
-        lançamentos:[]
+        transactions:[]
 
     });
 
     myModal.hide();
 
     alert("Conta criada com sucesso!");
-});
+}); 
 
 function checkLogged() {
     if(session) {
